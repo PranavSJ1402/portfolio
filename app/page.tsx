@@ -1,17 +1,25 @@
-import Encryption from "@/components/main/Encryption";
 import Hero from "@/components/main/Hero";
+import HomeContent from "@/components/main/HomeContent";
 import Projects from "@/components/main/Projects";
+import RevealOnScroll from "@/components/main/RevealOnScroll";
 import Skills from "@/components/main/Skills";
-import Image from "next/image";
 
 export default function Home() {
   return (
     <main className="h-full w-full">
-      <div className="flex flex-col gap-20">
-        <Hero />
-        <Skills />
-        <Encryption />
-        <Projects />
+      <div className="flex flex-col gap-6">
+        <RevealOnScroll>
+          <HomeContent />
+        </RevealOnScroll>
+        <RevealOnScroll>
+          <Hero />
+        </RevealOnScroll>
+        <RevealOnScroll>
+          <Skills />
+        </RevealOnScroll>
+        <RevealOnScroll>
+          <Projects />
+        </RevealOnScroll>
       </div>
     </main>
   );

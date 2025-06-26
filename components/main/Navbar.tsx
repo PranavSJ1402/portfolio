@@ -1,54 +1,78 @@
-import { Socials } from "@/constants";
-import Image from "next/image";
-import React from "react";
+"use client";
+import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { Menu, X } from "lucide-react"; // Icon set (install if needed)
 
 const Navbar = () => {
-  return (
-    <div className="w-full h-[65px] fixed top-0 shadow-lg shadow-[#2A0E61]/50 bg-[#03001417] backdrop-blur-md z-50 px-10">
-      <div className="w-full h-full flex flex-row items-center justify-between m-auto px-[10px]">
-        <a
-          href="#about-me"
-          className="h-auto w-auto flex flex-row items-center"
-        >
-          <Image
-            src="/NavLogo.png"
-            alt="logo"
-            width={70}
-            height={70}
-            className="cursor-pointer hover:animate-slowspin"
-          />
+  const [menuOpen, setMenuOpen] = useState(false);
 
-          <span className="font-bold ml-[10px] hidden md:block text-gray-300">
-            WebChain Dev
-          </span>
+  const toggleMenu = () => setMenuOpen(!menuOpen);
+
+  return (
+    <div className="w-full h-[65px] fixed top-0 shadow-lg shadow-[#2A0E61]/50 bg-[#03001417] backdrop-blur-md z-50 px-5 md:px-10">
+      <div className="w-full h-full flex items-center justify-between">
+        {/* Logo */}
+        <a href="#about-me" className="flex items-center space-x-1">
+          <motion.span
+            animate={{ color: ["#8b5cf6", "#06b6d4", "#8b5cf6"] }}
+            transition={{ duration: 3, repeat: Infinity, repeatType: "loop" }}
+            className="font-bold text-3xl sm:text-4xl"
+          >
+            P
+          </motion.span>
+          <motion.span
+            initial={{ opacity: 0, x: 10 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.4 }}
+            className="font-bold text-3xl sm:text-4xl text-white"
+          >ranav
+          </motion.span>
+          <motion.span
+            animate={{ color: ["#8b5cf6", "#06b6d4", "#8b5cf6"] }}
+            transition={{ duration: 3, repeat: Infinity, repeatType: "loop" }}
+            className="font-bold text-3xl sm:text-4xl"
+          >
+            J
+          </motion.span>
+          <motion.span
+            initial={{ opacity: 0, x: 10 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.4 }}
+            className="font-bold text-3xl sm:text-4xl text-white"
+          >
+            oshi
+          </motion.span>
         </a>
 
-        <div className="w-[500px] h-full flex flex-row items-center justify-between md:mr-20">
-          <div className="flex items-center justify-between w-full h-auto border border-[#7042f861] bg-[#0300145e] mr-[15px] px-[20px] py-[10px] rounded-full text-gray-200">
-            <a href="#about-me" className="cursor-pointer">
-              About me
-            </a>
-            <a href="#skills" className="cursor-pointer">
-              Skills
-            </a>
-            <a href="#projects" className="cursor-pointer">
-              Projects
-            </a>
+        {/* Desktop Nav */}
+        <div className="hidden md:flex items-center">
+          <div className="flex gap-6 px-6 py-2 border border-[#7042f861] rounded-full text-gray-200">
+            <a href="#home" className="cursor-pointer">Home</a>
+            <a href="#about-me" className="cursor-pointer">About me</a>
+            <a href="#tech-stack" className="cursor-pointer">Tech Stack</a>
+            <a href="#projects" className="cursor-pointer">Projects</a>
+            <a href="#contacts" className="cursor-pointer">Contact</a>
           </div>
         </div>
 
-        <div className="flex flex-row gap-5">
-          {Socials.map((social) => (
-            <Image
-              src={social.src}
-              alt={social.name}
-              key={social.name}
-              width={24}
-              height={24}
-            />
-          ))}
+        {/* Mobile Hamburger */}
+        <div className="md:hidden flex items-center">
+          <button onClick={toggleMenu} className="text-white">
+            {menuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
         </div>
       </div>
+
+      {/* Mobile Menu */}
+      {menuOpen && (
+        <div className="md:hidden mt-2 bg-[#0e0b1c] border-t border-[#7042f861] rounded-b-lg py-4 px-6 flex flex-col gap-4 text-white">
+          <a href="#home" className="cursor-pointer" onClick={toggleMenu}>Home</a>
+          <a href="#about-me" className="cursor-pointer" onClick={toggleMenu}>About me</a>
+          <a href="#tech-stack" className="cursor-pointer" onClick={toggleMenu}>Tech Stack</a>
+          <a href="#projects" className="cursor-pointer" onClick={toggleMenu}>Projects</a>
+          <a href="#contacts" className="cursor-pointer" onClick={toggleMenu}>Contact</a>
+        </div>
+      )}
     </div>
   );
 };

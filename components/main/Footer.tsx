@@ -14,7 +14,7 @@ const Footer = () => {
       id="contacts"
     >
       <h1 className="text-[48px] md:text-[60px] font-semibold text-center w-full text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 mb-12">
-        Contact Me
+        Contact
       </h1>
 
       <div className="w-full flex flex-col items-center justify-center">

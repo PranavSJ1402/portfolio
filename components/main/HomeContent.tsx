@@ -49,7 +49,7 @@ const HomeContent = () => {
   return (
     <section
       id="home"
-      className="relative flex flex-col-reverse md:flex-row items-center justify-between gap-10 px-8 md:px-16 py-20 min-h-screen overflow-hidden text-white"
+      className="relative z-30 pointer-events-auto flex flex-col-reverse md:flex-row items-center justify-between gap-10 px-8 md:px-16 min-h-screen overflow-hidden text-white"
     >
       {/* Floating Orbs */}
       <FloatingOrb
@@ -76,10 +76,10 @@ const HomeContent = () => {
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className="flex-1 z-20"
+        className="flex-1 z-30"
       >
         <h2 className="text-3xl md:text-4xl font-medium mb-2 text-gray-300">
-          Hey, I'm
+          Hey, I&apos;m
         </h2>
 
         <h1 className="text-5xl md:text-6xl font-extrabold mb-6 flex bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-cyan-400">
@@ -98,23 +98,14 @@ const HomeContent = () => {
         </h1>
 
         <h2 className="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
-          Frontend <br /> Developer
+          Fullstack <br /> Developer
         </h2>
 
-        <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-xl">
-          Hey there, I'm a passionate Frontend Developer. Have a look around,
-          and if you'd like to get in touch with me, feel free to check out my
-          resume.
+        <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-xl pointer-events-auto">
+          Hey there, I&apos;m a passionate Fullstack Developer crafting smooth,
+          scalable web apps. Take a look around and discover what I&apos;ve
+          built!
         </p>
-
-        {/* Download Resume Button */}
-        <a
-          href="https://drive.google.com/file/d/1pI1JVL93yTK1tJwXaVi7Q1tLbUiltxem/view?usp=sharing"
-          target="_blank"
-          className="inline-block py-4 px-8 bg-cyan-600 hover:bg-purple-500 text-white rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 z-[9999] relative"
-        >
-          Download Resume
-        </a>
       </motion.div>
 
       {/* Right Image Section */}
@@ -124,7 +115,7 @@ const HomeContent = () => {
         transition={{ duration: 0.8 }}
         className="flex-1 flex justify-center relative z-20"
       >
-        <div className="relative group">
+        <div className="relative group pointer-events-auto">
           {/* Decorative rotating rings */}
           <motion.div
             className="absolute inset-0 rounded-full border-2 border-purple-500/30 scale-110 pointer-events-none"

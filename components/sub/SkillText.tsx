@@ -1,6 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import Image from 'next/image';
+
 
 type FloatingParticleProps = {
   delay: number;
@@ -30,13 +32,9 @@ const FloatingParticle: React.FC<FloatingParticleProps> = ({
       repeat: Infinity,
       repeatDelay: 2,
     }}
-    style={{
-      left: "50%",
-      top: "50%",
-    }}
+    style={{ left: "50%", top: "50%" }}
   />
 );
-
 const SkillBadge = ({
   skill,
   delay,
@@ -49,32 +47,33 @@ const SkillBadge = ({
   image?: string;
   width?: number;
   height?: number;
-}) => (
-  <motion.div
-    initial={{ opacity: 0, scale: 0 }}
-    animate={{ opacity: 1, scale: 1 }}
-    transition={{ delay, duration: 0.5, type: "spring" }}
-    whileHover={{
-      scale: 1.1,
-      y: -8,
-      boxShadow: "0 15px 35px rgba(112, 66, 248, 0.4)",
-    }}
-    className="flex items-center gap-4 px-6 py-4 bg-gradient-to-r from-purple-600/20 to-blue-600/20 border border-purple-500/30 rounded-2xl text-base text-white/90 hover:text-white hover:border-purple-400 transition-all duration-300 cursor-pointer backdrop-blur-sm hover:bg-gradient-to-r hover:from-purple-600/30 hover:to-blue-600/30"
-  >
-    {image && (
-      <motion.img
-        src={image}
-        alt={skill}
-        width={width || 24}
-        height={height || 24}
-        className="object-contain w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14"
-        whileHover={{ rotate: 360 }}
-        transition={{ duration: 0.6 }}
-      />
-    )}
-    <span className="font-semibold text-base sm:text-lg">{skill}</span>
-  </motion.div>
-);
+}) => {
+  // Reduce size for JS and TS logos
+  const isSmallLogo = skill === "JavaScript" || skill === "TypeScript";
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ delay, duration: 0.5, type: "spring" }}
+      whileHover={{ scale: 1.08, y: -4 }}
+      className="flex flex-col items-center justify-center w-24 sm:w-28 md:w-32 gap-2 px-3 py-3 text-white/90 hover:text-white transition-all cursor-pointer"
+    >
+      <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 flex items-center justify-center">
+        {image && (
+          <img
+            src={image}
+            alt={skill}
+            className={`object-contain ${isSmallLogo ? 'w-10 h-10 sm:w-12 sm:h-12' : 'w-full h-full'}`}
+          />
+        )}
+      </div>
+      <span className="font-medium text-sm sm:text-base text-center">
+        {skill}
+      </span>
+    </motion.div>
+  );
+};
 
 const SkillText = () => {
   const [showParticles, setShowParticles] = useState(false);
@@ -82,17 +81,17 @@ const SkillText = () => {
   const skills = [
     { skill_name: "HTML", Image: "/html.png", width: 80, height: 80 },
     { skill_name: "CSS", Image: "/css.png", width: 80, height: 80 },
-    { skill_name: "JavaScript", Image: "/js.png", width: 65, height: 65 },
-    {
-      skill_name: "Tailwind CSS",
-      Image: "/tailwind.png",
-      width: 80,
-      height: 80,
-    },
-    { skill_name: "ReactJS", Image: "/react.png", width: 80, height: 80 },
-    { skill_name: "NextJS", Image: "/next.png", width: 80, height: 80 },
-    { skill_name: "Git", Image: "/git.png", width: 80, height: 80 },
-    { skill_name: "Python", Image: "/python.webp", width: 70, height: 70 },
+    { skill_name: "JavaScript", Image: "/js.png", width: 50, height: 65 },
+    { skill_name: "TypeScript", Image: "/ts.png", width: 50, height: 65 },
+    { skill_name: "Tailwind CSS", Image: "/tailwind.png", width: 80, height: 80 },
+    { skill_name: "React.js", Image: "/react.png", width: 80, height: 80 },
+    { skill_name: "Next.js", Image: "/next.png", width: 80, height: 80 },
+    { skill_name: "Node.js", Image: "/node-js.png", width: 80, height: 80 },
+    { skill_name: "Express.js", Image: "/express.png", width: 80, height: 80 },
+    { skill_name: "MongoDB", Image: "/mongodb.png", width: 80, height: 80 },
+    { skill_name: "MySQL", Image: "/mysql.png", width: 80, height: 80 },
+    { skill_name: "Git", Image: "/git (2).png", width: 80, height: 80 },
+    { skill_name: "Figma", Image: "/figma.png", width: 80, height: 80 },
   ];
 
   const handleSkillBadgeClick = () => {
@@ -103,52 +102,52 @@ const SkillText = () => {
   return (
     <div
       id="tech-stack"
-      className="w-full min-h-screen flex flex-col items-center justify-center px-4 py-12 relative overflow-hidden"
+      className="w-full min-h-screen flex flex-col items-center justify-center px-6 mb-0 mt-16 relative overflow-hidden"
     >
       {/* Background Effects */}
-      <div className="absolute top-20 left-20 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
+      <div className="absolute top-20 left-20 w-60 h-60 bg-purple-500/10 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute bottom-20 right-20 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
 
       {/* Floating Particles */}
-      {showParticles && (
-        <>
-          {[...Array(15)].map((_, i) => (
-            <FloatingParticle
-              key={i}
-              delay={i * 0.08}
-              duration={2.5}
-              targetX={Math.random() * 300 - 150}
-              targetY={Math.random() * 300 - 150}
-            />
-          ))}
-        </>
-      )}
+      {showParticles &&
+        [...Array(15)].map((_, i) => (
+          <FloatingParticle
+            key={i}
+            delay={i * 0.08}
+            duration={2.5}
+            targetX={Math.random() * 300 - 150}
+            targetY={Math.random() * 300 - 150}
+          />
+        ))}
 
       {/* Header */}
       <motion.div
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, type: "spring" }}
-        className="relative mb-12 scroll-mt-24"
+        className="relative mb-10 text-center"
         onClick={handleSkillBadgeClick}
       >
-        <motion.h1 className="text-[40px] sm:text-[48px] md:text-[60px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 cursor-pointer">
+      <motion.h1 className="text-[60px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-400 cursor-pointer">
           Tech Stack
         </motion.h1>
+        <p className="text-white/70 text-m sm:text-base mt-2">
+          Technologies I work with
+        </p>
       </motion.div>
 
-      {/* Skill Badges Grid (Responsive) */}
+      {/* Skill Badges Flex Flow */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3, duration: 0.6 }}
-        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-4 sm:gap-6 px-4"
+        className="flex flex-wrap justify-center gap-10 mb-0 max-w-6xl"
       >
         {skills.map((skill, index) => (
           <SkillBadge
             key={index}
             skill={skill.skill_name}
-            delay={index * 0.1}
+            delay={index * 0.05}
             image={skill.Image}
             width={skill.width}
             height={skill.height}

@@ -11,7 +11,7 @@ const manrope = Manrope({
   variable: '--font-manrope',
 })
 export const metadata: Metadata = {
-  title: "Space Portfolio",
+  title: "Portfolio",
   description: "This is my portfolio",
 };
 
@@ -25,7 +25,6 @@ export default function RootLayout({
       <body
         className={`${manrope.className} bg-[#030014] overflow-y-scroll overflow-x-hidden`}
       >
-        <StarsCanvas />
         <Navbar />
         {children}
         <Footer />

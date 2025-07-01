@@ -4,10 +4,13 @@ import SkillText from "../sub/SkillText";
 const Skills = () => {
   return (
     <section
-      id="tech-stack"
-      className="scroll-mt-[80px] flex flex-col items-center justify-center gap-3 h-full relative overflow-hidden"
+      id="skills"
+      className="scroll-mt-[80px] flex flex-col items-center justify-center w-full min-h-screen relative overflow-hidden bg-transparent px-4"
+      aria-labelledby="skills-heading"
     >
-      <SkillText />
+      <div className="max-w-7xl w-full">
+        <SkillText />
+      </div>
     </section>
   );
 };

@@ -10,7 +10,7 @@ const HeroTypingBox = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="relative mb-4 scroll-mt-24"
+      className="relative mb-4"
     >
       <motion.h1 className="text-[60px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-400 cursor-pointer">
         About Me
@@ -19,7 +19,7 @@ const HeroTypingBox = () => {
   );
 };
 
-const FloatingOrb = ({ delay, size, color, position }) => (
+const FloatingOrb = ({ delay, size, color, position }: any) => (
   <motion.div
     className={`absolute rounded-full opacity-20 blur-xl ${color}`}
     style={{
@@ -45,12 +45,12 @@ const HeroContent = () => {
   const [currentWord, setCurrentWord] = useState(0);
   const dynamicWords = ["innovative", "responsive", "modern", "interactive"];
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentWord((prev) => (prev + 1) % dynamicWords.length);
-    }, 2500);
-    return () => clearInterval(interval);
-  }, []);
+ useEffect(() => {
+  const interval = setInterval(() => {
+    setCurrentWord((prev) => (prev + 1) % dynamicWords.length);
+  }, 2500);
+  return () => clearInterval(interval);
+}, [dynamicWords.length]);
 
   const fadeInVariant = (delay = 0) => ({
     hidden: { opacity: 0, y: 20 },
@@ -67,18 +67,33 @@ const HeroContent = () => {
       animate="visible"
       className="flex flex-col lg:flex-row items-center justify-between px-8 md:px-20 mt-20 md:mt-40 w-full z-[20] gap-12 lg:gap-20 relative"
     >
-      {/* Floating Orbs */}
-      <FloatingOrb delay={0} size="200px" color="bg-purple-500" position={{ top: "10%", left: "10%" }} />
-      <FloatingOrb delay={2} size="150px" color="bg-cyan-500" position={{ bottom: "20%", right: "15%" }} />
-      <FloatingOrb delay={4} size="100px" color="bg-pink-500" position={{ top: "60%", left: "70%" }} />
-
-      {/* Left Section - Image (Previously Right) */}
+      {/* Left Section - Image */}
       <motion.div
         variants={fadeInVariant(0.8)}
         initial="hidden"
         animate="visible"
         className="w-full lg:w-1/2 flex justify-center lg:justify-start relative order-2 lg:order-1"
       >
+        {/* Floating Orbs moved here */}
+        <FloatingOrb
+          delay={0}
+          size="200px"
+          color="bg-purple-500"
+          position={{ top: "10%", left: "10%" }}
+        />
+        <FloatingOrb
+          delay={2}
+          size="150px"
+          color="bg-cyan-500"
+          position={{ bottom: "20%", right: "15%" }}
+        />
+        <FloatingOrb
+          delay={4}
+          size="100px"
+          color="bg-pink-500"
+          position={{ top: "60%", left: "70%" }}
+        />
+
         <div className="relative group">
           {/* Decorative rings */}
           <motion.div
@@ -108,12 +123,11 @@ const HeroContent = () => {
               priority
             />
           </motion.div>
-
         </div>
       </motion.div>
 
-      {/* Right Section - Text Content (Previously Left) */}
-      <div className="flex flex-col gap-6 justify-center text-start w-full max-w-3xl lg:w-1/2 order-1 lg:order-2">
+      {/* Right Section - Text */}
+      <div className="flex flex-col gap-6 justify-center items-center md:items-start w-full max-w-3xl lg:w-1/2 order-1 lg:order-2 text-center md:text-left lg:text-justify">
         <HeroTypingBox />
 
         <motion.div
@@ -122,9 +136,13 @@ const HeroContent = () => {
           animate="visible"
           className="text-4xl md:text-3xl lg:text-5xl font-bold text-white leading-tight"
         >
-          <motion.span whileHover={{ scale: 1.02 }} className="inline-block mr-5">
-            Crafting 
+          <motion.span
+            whileHover={{ scale: 1.02 }}
+            className="block md:inline-block mr-0 md:mr-5"
+          >
+            Creating
           </motion.span>
+
           <span className="relative inline-block">
             <AnimatePresence mode="wait">
               <motion.span
@@ -146,27 +164,35 @@ const HeroContent = () => {
           </motion.span>
         </motion.div>
 
-     <motion.p
-  variants={fadeInVariant(0.6)}
-  initial="hidden"
-  animate="visible"
-  className="text-gray-300 text-lg leading-8"
->
-  <motion.span
-    whileHover={{ color: "#a855f7" }}
-    className="font-semibold text-white cursor-default justify-normal"
-  >
-    A frontend-focused developer from Chhatrapati Sambhaji Nagar
-  </motion.span>
-  , passionate about crafting responsive, accessible, and intuitive web applications. I specialize in building seamless user interfaces using technologies like&nbsp;
-  <span className="text-white font-medium">React</span>,&nbsp;
-  <span className="text-white font-medium">Next.js</span>, and&nbsp;
-  <span className="text-white font-medium">Tailwind CSS</span>.
-  <br />
-  I enjoy turning complex problems into elegant UI solutions and exploring design systems, animation libraries like&nbsp;
-  <span className="text-white font-medium">Framer Motion</span>, while keeping up with modern frontend trends.
-</motion.p>
+        <motion.p
+          variants={fadeInVariant(0.6)}
+          initial="hidden"
+          animate="visible"
+          className="text-gray-300 text-lg leading-8 text-center md:text-left lg:text-justify"
+        >
+          <motion.span
+            className="font-semibold text-white cursor-default"
+          >
+           I&apos;m a frontend focused fullstack developer from Chh Sambhajinagar,
+          </motion.span>
+          &nbsp;interested in crafting clean and responsive user interfaces
+          using&nbsp;
+          <span className="text-white font-medium">React</span>,&nbsp;
+          <span className="text-white font-medium">Next.js</span>, and&nbsp;
+          <span className="text-white font-medium">Tailwind CSS</span>.
+          <br />I enjoy building real-world apps that integrate&nbsp;
+          <span className="text-white font-medium">AI</span>, solve practical
+          problems, and improve user experiences with tools like&nbsp;
+          <span className="text-white font-medium">Framer Motion</span>.
+        </motion.p>
 
+        {/* Download Resume Button */}
+        <button
+          onClick={() => window.open("/Pranav-Joshi-Resume.pdf", "_blank")}
+          className="py-3 px-6 bg-cyan-600 hover:bg-purple-500 text-white rounded-xl font-semibold text-base transition-all duration-300 hover:scale-105 z-[9999] relative pointer-events-auto"
+        >
+          View Resume
+        </button>
       </div>
 
       <style jsx>{`

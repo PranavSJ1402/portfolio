@@ -61,11 +61,8 @@ const SkillBadge = ({
     >
       <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 flex items-center justify-center">
         {image && (
-          <img
-            src={image}
-            alt={skill}
-            className={`object-contain ${isSmallLogo ? 'w-10 h-10 sm:w-12 sm:h-12' : 'w-full h-full'}`}
-          />
+         <Image src="/something.png" alt="Skill" width={64} height={64} />
+
         )}
       </div>
       <span className="font-medium text-sm sm:text-base text-center">

@@ -188,7 +188,7 @@ const HeroContent = () => {
 
         {/* Download Resume Button */}
         <button
-          onClick={() => window.open("/Pranav-Joshi-Resume (4).pdf", "_blank")}
+          onClick={() => window.open("/Pranav-Joshi (4).pdf", "_blank")}
           className="py-3 px-6 bg-cyan-600 hover:bg-purple-500 text-white rounded-xl font-semibold text-base transition-all duration-300 hover:scale-105 z-[9999] relative pointer-events-auto"
         >
           View Resume

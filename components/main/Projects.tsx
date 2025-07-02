@@ -15,7 +15,7 @@ const Projects = () => {
           githubLink="https://github.com/PranavSJ1402/FitMentorAI"
         />
         <ProjectCard
-          src="/ai interview.png"
+          src="/AI-Interview.png"
           title="AI Interview Prep Platform"
           description="A fullstack web application that helps users prepare for technical interviews using AI. Features include dynamic Q&A generation, personalized sessions by role, and concept explanations. Built with React, Tailwind, and Gemini API."
           githubLink="https://github.com/PranavSJ1402/ai-interview-prep"

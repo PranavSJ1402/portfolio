@@ -49,7 +49,7 @@ const HomeContent = () => {
   return (
     <section
       id="home"
-      className="relative z-30 pointer-events-auto flex flex-col-reverse md:flex-row items-center justify-between gap-10 px-8 md:px-16 min-h-screen overflow-hidden text-white"
+      className="relative z-30 pointer-events-auto flex flex-col-reverse md:flex-row items-center justify-center gap-10 px-6 md:px-16 min-h-screen overflow-hidden text-white mt-28"
     >
       {/* Floating Orbs */}
       <FloatingOrb
@@ -76,7 +76,7 @@ const HomeContent = () => {
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className="flex-1 z-30"
+className="flex-1 z-30 text-center md:text-left flex flex-col items-center md:items-start"
       >
         <h2 className="text-3xl md:text-4xl font-medium mb-2 text-gray-300">
           Hey, I&apos;m
@@ -115,7 +115,7 @@ const HomeContent = () => {
         transition={{ duration: 0.8 }}
         className="flex-1 flex justify-center relative z-20"
       >
-        <div className="relative group pointer-events-auto">
+        <div className="relative group pointer-events-auto mt-10 md:mt-0">
           {/* Decorative rotating rings */}
           <motion.div
             className="absolute inset-0 rounded-full border-2 border-purple-500/30 scale-110 pointer-events-none"
@@ -130,7 +130,7 @@ const HomeContent = () => {
 
           {/* Image */}
           <motion.div
-            className="relative w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden bg-gradient-to-br from-purple-600/20 to-cyan-600/20 backdrop-blur-sm border-4 border-white/30 shadow-lg ring-2 ring-purple-500/40 hover:shadow-xl hover:ring-purple-600/70 transition-all duration-300"
+            className="relative w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden bg-gradient-to-br from-purple-600/20 to-cyan-600/20 backdrop-blur-sm border-4 border-white/30 shadow-lg ring-2 ring-yellow-500/40 hover:shadow-xl hover:ring-purple-600/70 transition-all duration-300"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
           >

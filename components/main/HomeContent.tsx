@@ -49,7 +49,7 @@ const HomeContent = () => {
   return (
     <section
       id="home"
-      className="relative z-30 pointer-events-auto flex flex-col-reverse md:flex-row items-center justify-center gap-10 px-6 md:px-16 min-h-screen overflow-hidden text-white mt-28"
+      className="relative z-30 pointer-events-auto flex flex-col-reverse md:flex-row items-center justify-center gap-10 px-6 md:px-16 min-h-screen overflow-hidden text-white mt-24"
     >
       {/* Floating Orbs */}
       <FloatingOrb

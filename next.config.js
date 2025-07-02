@@ -1,8 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export', // Enables static export
+  output: 'export',
+  basePath: '/portfolio',
+  assetPrefix: '/portfolio',
   images: {
-    unoptimized: true, // Required if you're using next/image without image optimization server
+    unoptimized: true,
   },
 };
 

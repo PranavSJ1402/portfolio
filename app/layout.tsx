@@ -13,6 +13,9 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   title: "Portfolio",
   description: "This is my portfolio",
+  icons: {
+    icon: "", // ⛔ No icon
+  },
 };
 
 export default function RootLayout({

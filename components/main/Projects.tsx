@@ -23,8 +23,8 @@ const Projects = () => {
 
         <ProjectCard
           src="/task manager.png"
-          title="Task Management App"
-          description="A fullstack task management platform where users can create, update, and organize their tasks efficiently. Includes status filters, deadline tracking, and a responsive UI built with React and styled using Tailwind CSS."
+          title="Task Management App (In Development)"
+          description="Developing a responsive full-stack task management app with a clean UI using React.js and Tailwind CSS. Building RESTful APIs with Node.js and Express.js to manage tasks, user roles, and assignments. Implementing Role-Based Access Control (RBAC) for admin/member permissions, and using MongoDB to efficiently store tasks, priorities, due dates, and user data."
           githubLink="https://github.com/PranavSJ1402/task-manager-app"
         />
       </div>

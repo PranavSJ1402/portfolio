@@ -23,7 +23,7 @@ const Projects = () => {
         <ProjectCard
           src="/task manager.png"
           title="Task Management App (In Development)"
-          description="A full-stack task management app with role-based access control (RBAC). Users can create and assign tasks with due dates, priorities, and statuses. Built using React, Node.js, Express, MongoDB, and Tailwind CSS."
+          description="Currently developing a full-stack task management app with role-based access control (RBAC). Users will be able to create, assign, and manage tasks with due dates, priorities, and statuses. Built with React, Node.js, Express, MongoDB, and Tailwind CSS."
           githubLink="https://github.com/PranavSJ1402/task-manager-app"
         />
       </div>

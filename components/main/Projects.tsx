@@ -11,20 +11,19 @@ const Projects = () => {
         <ProjectCard
           src="/Fitness Mentor Ai.png"
           title="Fitness-Mentor AI"
-          description="A full-stack AI-powered fitness planning platform built with Next.js. It delivers personalized workout and meal plans based on user inputs like fitness goals and dietary preferences. Features interactive voice-based guidance and a clean, responsive interface for a smooth user experience."
+          description="A full-stack AI fitness platform built with Next.js. It generates personalized workout and diet plans based on user goals and inputs. Integrated with voice-based interaction using Vapi and features a clean, responsive UI."
           githubLink="https://github.com/PranavSJ1402/FitMentorAI"
         />
         <ProjectCard
           src="/AI-Interview.png"
           title="AI Interview Prep Platform"
-          description="A fullstack web application that helps users prepare for technical interviews using AI. Features include dynamic Q&A generation, personalized sessions by role, and concept explanations. Built with React, Tailwind, and Gemini API."
+          description="A full-stack interview prep tool powered by Gemini API. It generates dynamic Q&A based on user-selected roles, with concept explanations and session flow. Built using React, Tailwind CSS, Node.js, and MongoDB."
           githubLink="https://github.com/PranavSJ1402/ai-interview-prep"
         />
-
         <ProjectCard
           src="/task manager.png"
           title="Task Management App (In Development)"
-          description="Developing a responsive full-stack task management app with a clean UI using React.js and Tailwind CSS. Building RESTful APIs with Node.js and Express.js to manage tasks, user roles, and assignments. Implementing Role-Based Access Control (RBAC) for admin/member permissions, and using MongoDB to efficiently store tasks, priorities, due dates, and user data."
+          description="A full-stack task management app with role-based access control (RBAC). Users can create and assign tasks with due dates, priorities, and statuses. Built using React, Node.js, Express, MongoDB, and Tailwind CSS."
           githubLink="https://github.com/PranavSJ1402/task-manager-app"
         />
       </div>

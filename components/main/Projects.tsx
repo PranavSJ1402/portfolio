@@ -18,13 +18,13 @@ const Projects = () => {
           src="/AI-Interview.png"
           title="AI Interview Prep Platform"
           description="A full-stack interview prep tool powered by Gemini API. It generates dynamic Q&A based on user-selected roles, with concept explanations and session flow. Built using React, Tailwind CSS, Node.js, and MongoDB."
-          githubLink="https://github.com/PranavSJ1402/ai-interview-prep"
+          githubLink="https://github.com/PranavSJ1402/AI-Interview-Prep-Platform"
         />
         <ProjectCard
           src="/task manager.png"
           title="Task Management App (In Development)"
           description="Currently developing a full-stack task management app with role-based access control (RBAC). Users will be able to create, assign, and manage tasks with due dates, priorities, and statuses. Built with React, Node.js, Express, MongoDB, and Tailwind CSS."
-          githubLink="https://github.com/PranavSJ1402/task-manager-app"
+          githubLink="https://github.com/PranavSJ1402/Task_Manager"
         />
       </div>
     </div>

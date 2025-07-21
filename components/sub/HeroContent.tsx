@@ -45,12 +45,12 @@ const HeroContent = () => {
   const [currentWord, setCurrentWord] = useState(0);
   const dynamicWords = ["innovative", "responsive", "modern", "interactive"];
 
- useEffect(() => {
-  const interval = setInterval(() => {
-    setCurrentWord((prev) => (prev + 1) % dynamicWords.length);
-  }, 2500);
-  return () => clearInterval(interval);
-}, [dynamicWords.length]);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentWord((prev) => (prev + 1) % dynamicWords.length);
+    }, 2500);
+    return () => clearInterval(interval);
+  }, [dynamicWords.length]);
 
   const fadeInVariant = (delay = 0) => ({
     hidden: { opacity: 0, y: 20 },
@@ -170,14 +170,13 @@ const HeroContent = () => {
           animate="visible"
           className="text-gray-300 text-lg leading-8 text-center md:text-left lg:text-justify"
         >
-          <motion.span
-            className="font-semibold text-white cursor-default"
-          >
-           I&apos;m a frontend focused fullstack developer from Chh Sambhajinagar,
+          <motion.span className="font-semibold text-white cursor-default">
+            I&apos;m a frontend focused fullstack developer from Chh
+            Sambhajinagar,
           </motion.span>
           &nbsp;interested in crafting clean and responsive user interfaces
           using&nbsp;
-          <span className="text-white font-medium">React</span>,&nbsp;
+          <span className="text-white font-medium">MERN Stack</span>,&nbsp;
           <span className="text-white font-medium">Next.js</span>, and&nbsp;
           <span className="text-white font-medium">Tailwind CSS</span>.
           <br />I enjoy building real-world apps that integrate&nbsp;
@@ -188,7 +187,13 @@ const HeroContent = () => {
 
         {/* Download Resume Button */}
         <button
-          onClick={() => window.open("/Pranav-Joshi.pdf", "_blank")}
+          onClick={() =>
+            window.open(
+              "/PranavJoshiResume.pdf",
+              "_blank",
+              "noopener,noreferrer"
+            )
+          }
           className="py-3 px-6 bg-cyan-600 hover:bg-purple-500 text-white rounded-xl font-semibold text-base transition-all duration-300 hover:scale-105 z-[9999] relative pointer-events-auto"
         >
           View Resume

@@ -15,6 +15,7 @@ import {
   SiMysql,
   SiGit,
   SiFigma,
+  SiPython,
 } from "react-icons/si";
 
 // FloatingParticle Component
@@ -90,6 +91,7 @@ const SkillText = () => {
     { skill: "Express.js", Icon: SiExpress },
     { skill: "MongoDB", Icon: SiMongodb },
     { skill: "MySQL", Icon: SiMysql },
+    { skill: "Python", Icon: SiPython },
     { skill: "Git", Icon: SiGit },
     { skill: "Figma", Icon: SiFigma },
   ];

@@ -33,13 +33,12 @@ const FloatingOrb = ({ delay, size, color, position }: FloatingOrbProps) => (
     }}
   />
 );
-
 const letterAnimation: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.1 },
+    transition: { delay: i * 0.1 }, // ⬅️ Slower reveal
   }),
 };
 
@@ -98,7 +97,7 @@ className="flex-1 z-30 text-center md:text-left flex flex-col items-center md:it
         </h1>
 
         <h2 className="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
-          Fullstack <br /> Developer
+          Fullstack Developer
         </h2>
 
         <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-xl pointer-events-auto">

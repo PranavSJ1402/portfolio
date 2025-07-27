@@ -9,22 +9,29 @@ const Projects = () => {
       </h1>
       <div className="h-full w-full flex flex-col md:flex-row gap-2 px-10">
         <ProjectCard
-          src="/Fitness Mentor Ai.png"
-          title="Fitness-Mentor AI"
+          src="/FitBot(1).png"
+          title="Fitness-Plan Generator AI"
+          projectName="FitBot"
           description="A full-stack AI fitness platform built with Next.js. It generates personalized workout and diet plans based on user goals and inputs. Integrated with voice-based interaction using Vapi and features a clean, responsive UI."
           githubLink="https://github.com/PranavSJ1402/FitMentorAI"
+          projectLink="https://fitbot-ai.vercel.app/"
         />
         <ProjectCard
           src="/AI-Interview.png"
           title="AI Interview Prep Platform"
+          projectName="PrepMate"
           description="A full-stack interview prep tool powered by Gemini API. It generates dynamic Q&A based on user-selected roles, with concept explanations and session flow. Built using React, Tailwind CSS, Node.js, and MongoDB."
           githubLink="https://github.com/PranavSJ1402/AI-Interview-Prep-Platform"
+          projectLink="https://prepmate-interview-prep.vercel.app/"
         />
         <ProjectCard
           src="/task manager.png"
-          title="Task Management App (In Development)"
-          description="Currently developing a full-stack task management app with role-based access control (RBAC). Users will be able to create, assign, and manage tasks with due dates, priorities, and statuses. Built with React, Node.js, Express, MongoDB, and Tailwind CSS."
+          title="Task Management App"
+          projectName="Assignly"
+          description="A full-stack task manager with RBAC, allowing team leads to assign tasks and members to receive and update task status. Tracks tasks by priority, status, and deadlines. Built using React, Node.js, Express.js, MySQL, and Tailwind CSS."
           githubLink="https://github.com/PranavSJ1402/Task_Manager"
+          projectLink=""
+
         />
       </div>
     </div>

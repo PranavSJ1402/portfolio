@@ -17,9 +17,7 @@ const Navbar = () => {
             animate={{ color: ["#8b5cf6", "#06b6d4", "#8b5cf6"] }}
             transition={{ duration: 3, repeat: Infinity, repeatType: "loop" }}
             className="font-bold text-3xl sm:text-4xl"
-          >
-            P
-          </motion.span>
+          >P</motion.span>
           <motion.span
             initial={{ opacity: 0, x: 10 }}
             animate={{ opacity: 1, x: 0 }}

@@ -14,11 +14,9 @@ import {
   SiMongodb,
   SiMysql,
   SiGit,
-  SiFigma,
-  SiPython,
 } from "react-icons/si";
 
-// FloatingParticle Component
+// Floating Particle Component
 const FloatingParticle = ({
   delay,
   duration,
@@ -49,51 +47,86 @@ const FloatingParticle = ({
   />
 );
 
-// SkillBadge Component
+// Skill Badge Component
 const SkillBadge = ({
   skill,
   Icon,
   delay,
+  color,
+  imageUrl,
 }: {
   skill: string;
-  Icon: React.ElementType;
+  Icon: React.ElementType | null;
   delay: number;
-}) => (
-  <motion.div
-    initial={{ opacity: 0, scale: 0 }}
-    animate={{ opacity: 1, scale: 1 }}
-    transition={{ delay, duration: 0.5, type: "spring" }}
-    whileHover={{ scale: 1.08, y: -4 }}
-    className="flex flex-col items-center justify-center w-24 sm:w-28 md:w-32 gap-2 px-3 py-3 text-white/90 hover:text-white transition-all cursor-pointer"
-  >
-    <div className="text-4xl sm:text-5xl">
-      <Icon />
-    </div>
-    <span className="font-medium text-sm sm:text-base text-center">
-      {skill}
-    </span>
-  </motion.div>
-);
+  color: string;
+  imageUrl?: string;
+}) => {
+  const needsBg = color === "#000000";
 
-// SkillText Main Component
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ delay, duration: 0.5, type: "spring" }}
+      whileHover={{ scale: 1.08, y: -4 }}
+      className="flex flex-col items-center justify-center w-24 sm:w-28 md:w-32 gap-2 px-3 py-3 text-white/90 hover:text-white transition-all cursor-pointer"
+    >
+      <div
+        className="text-4xl sm:text-5xl p-2 rounded-full flex items-center justify-center"
+        style={{
+          backgroundColor: "transparent",
+          boxShadow: needsBg ? "0 2px 6px rgba(0,0,0,0.15)" : "none",
+        }}
+      >
+      {Icon ? (
+  <Icon color={color} />
+) : (
+  <img
+    src={imageUrl}
+    alt={skill}
+    className={`object-contain ${
+      skill === "Python" ? "w-20 h-20 sm:w-24 sm:h-24" : "w-14 h-14 sm:w-12 sm:h-12"
+    }`}
+  />
+)}
+
+      </div>
+      <span className="font-medium text-sm sm:text-base text-center">
+        {skill}
+      </span>
+    </motion.div>
+  );
+};
+
+// Skill Text Main Component
 const SkillText = () => {
   const [showParticles, setShowParticles] = useState(false);
 
   const skills = [
-    { skill: "HTML", Icon: SiHtml5 },
-    { skill: "CSS", Icon: SiCss3 },
-    { skill: "JavaScript", Icon: SiJavascript },
-    { skill: "TypeScript", Icon: SiTypescript },
-    { skill: "Tailwind CSS", Icon: SiTailwindcss },
-    { skill: "React.js", Icon: SiReact },
-    { skill: "Next.js", Icon: SiNextdotjs },
-    { skill: "Node.js", Icon: SiNodedotjs },
-    { skill: "Express.js", Icon: SiExpress },
-    { skill: "MongoDB", Icon: SiMongodb },
-    { skill: "MySQL", Icon: SiMysql },
-    { skill: "Python", Icon: SiPython },
-    { skill: "Git", Icon: SiGit },
-    { skill: "Figma", Icon: SiFigma },
+    { skill: "HTML", Icon: SiHtml5, color: "#E34F26" },
+    { skill: "CSS", Icon: SiCss3, color: "#1572B6" },
+    { skill: "JavaScript", Icon: SiJavascript, color: "#F7DF1E" },
+    { skill: "TypeScript", Icon: SiTypescript, color: "#3178C6" },
+    { skill: "Tailwind CSS", Icon: SiTailwindcss, color: "#06B6D4" },
+    { skill: "React.js", Icon: SiReact, color: "#61DAFB" },
+    { skill: "Next", Icon: null,color: "#000000", imageUrl: "/next.png"},
+    { skill: "Node.js", Icon: SiNodedotjs, color: "#339933" },
+    { skill: "Express.js", Icon: SiExpress, color: "#000000" },
+    { skill: "MongoDB", Icon: SiMongodb, color: "#47A248" },
+    { skill: "MySQL", Icon: SiMysql, color: "#4479A1" },
+    {
+      skill: "Python",
+      Icon: null,
+      color: "#000000",
+      imageUrl: "/python (2).png"
+    },
+    { skill: "Git", Icon: SiGit, color: "#F05032" },
+    {
+      skill: "Figma",
+      Icon: null,
+      color: "#000000",
+      imageUrl: "/figma.png", 
+    },
   ];
 
   const handleSkillBadgeClick = () => {
@@ -151,6 +184,8 @@ const SkillText = () => {
             skill={item.skill}
             Icon={item.Icon}
             delay={index * 0.05}
+            color={item.color}
+            imageUrl={item.imageUrl}
           />
         ))}
       </motion.div>

@@ -129,7 +129,7 @@ className="flex-1 z-30 text-center md:text-left flex flex-col items-center md:it
 
           {/* Image */}
           <motion.div
-            className="relative w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden bg-gradient-to-br from-purple-600/20 to-cyan-600/20 backdrop-blur-sm border-4 border-white/30 shadow-lg ring-2 ring-yellow-500/40 hover:shadow-xl hover:ring-purple-600/70 transition-all duration-300"
+            className="relative w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden bg-gradient-to-br from-purple-600/20 to-cyan-600/20 backdrop-blur-sm border-4 border-white/30 shadow-lg  transition-all duration-300"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
           >

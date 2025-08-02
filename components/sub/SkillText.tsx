@@ -109,9 +109,9 @@ const SkillText = () => {
     { skill: "TypeScript", Icon: SiTypescript, color: "#3178C6" },
     { skill: "Tailwind CSS", Icon: SiTailwindcss, color: "#06B6D4" },
     { skill: "React.js", Icon: SiReact, color: "#61DAFB" },
-    { skill: "Next", Icon: null,color: "#000000", imageUrl: "/next.png"},
+    { skill: "Next.js", Icon: null,color: "#000000", imageUrl: "/next.png"},
     { skill: "Node.js", Icon: SiNodedotjs, color: "#339933" },
-    { skill: "Express.js", Icon: SiExpress, color: "#000000" },
+    { skill: "Express.js", Icon: null,color: "#000000", imageUrl: "/express.png"},
     { skill: "MongoDB", Icon: SiMongodb, color: "#47A248" },
     { skill: "MySQL", Icon: SiMysql, color: "#4479A1" },
     {

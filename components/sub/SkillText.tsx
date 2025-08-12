@@ -14,6 +14,7 @@ import {
   SiMongodb,
   SiMysql,
   SiGit,
+  SiPostgresql,
 } from "react-icons/si";
 
 // Floating Particle Component
@@ -113,6 +114,18 @@ const SkillText = () => {
     { skill: "Node.js", Icon: SiNodedotjs, color: "#339933" },
     { skill: "Express.js", Icon: null,color: "#000000", imageUrl: "/express.png"},
     { skill: "MongoDB", Icon: SiMongodb, color: "#47A248" },
+    {
+      skill: "Postgresql",
+      Icon: null,
+      color: "#000000",
+      imageUrl: "/postger.png"
+    },{
+      skill: "Prisma",
+      Icon: null,
+      color: "#000000",
+      imageUrl: "/prisma.webp"
+    },
+    
     { skill: "MySQL", Icon: SiMysql, color: "#4479A1" },
     {
       skill: "Python",
@@ -164,10 +177,10 @@ const SkillText = () => {
         onClick={handleSkillBadgeClick}
       >
         <motion.h1 className="text-[60px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-400 cursor-pointer">
-          Tech Stack
+          Technical Skills
         </motion.h1>
-        <p className="text-white/70 text-m sm:text-base mt-2">
-          Technologies I work with
+        <p className="text-white/70  italic text-xl sm:text-base mt-2">
+          Technologies I have worked with
         </p>
       </motion.div>
 
@@ -176,7 +189,7 @@ const SkillText = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3, duration: 0.6 }}
-        className="flex flex-wrap justify-center gap-10 mb-0 max-w-6xl"
+  className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-10 mb-0 max-w-6xl"
       >
         {skills.map((item, index) => (
           <SkillBadge

@@ -40,7 +40,6 @@ const ProjectCard = ({
 
     <div className="flex justify-between items-center mt-4">
       {/* Live Project Link */}
-  {projectLink ? (
   <a
     href={projectLink}
     target="_blank"
@@ -50,9 +49,7 @@ const ProjectCard = ({
     <span className="text-[14px] hover:underline">View Project</span>
     <FaExternalLinkAlt size={12} />
   </a>
-) : (
-  <div className="text-gray-500 text-sm italic underline">currently under development</div>
-)}
+
 
       {/* GitHub Link */}
       <a

@@ -24,15 +24,15 @@ const Projects = () => {
           githubLink="https://github.com/PranavSJ1402/AI-Interview-Prep-Platform"
           projectLink="https://prepmate-interview-prep.vercel.app/"
         />
-        <ProjectCard
-          src="/task manager.png"
-          title="Task Management App"
-          projectName="Assignly"
-          description="A full-stack task manager with RBAC, allowing team leads to assign tasks and members to receive and update task status. Tracks tasks by priority, status, and deadlines. Built using React, Node.js, Express.js, MySQL, and Tailwind CSS."
-          githubLink="https://github.com/PranavSJ1402/Task_Manager"
-          projectLink=""
+     <ProjectCard
+  src="/expense-tracker.png"
+  title="AI-Powered Expense Tracker"
+  projectName="Tracklet"
+  description="An AI expense tracker that categorizes spending, analyzes patterns, and offers personalized financial tips. Built with Next.js, Clerk for authentication, OpenAI for insights, and real-time visualizations using React Charts."
+  githubLink="https://github.com/PranavSJ1402/Expense_Tracker_AI"
+  projectLink=""
+/>
 
-        />
       </div>
     </div>
   );

@@ -189,7 +189,7 @@ const SkillText = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3, duration: 0.6 }}
-  className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-10 mb-0 max-w-6xl"
+  className="grid grid-cols-4 sm:grid-cols-4 lg:grid-cols-8 gap-10 justify-items-center mb-0 max-w-6xl"
       >
         {skills.map((item, index) => (
           <SkillBadge

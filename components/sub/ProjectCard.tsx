@@ -1,9 +1,10 @@
 import Image from "next/image";
 import React from "react";
 import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
+import { StaticImageData } from 'next/image';
 
 type ProjectCardProps = {
-  src: string;
+  src: string |StaticImageData;
   title: string;
   description: string;
   githubLink: string;

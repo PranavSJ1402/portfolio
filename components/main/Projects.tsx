@@ -1,6 +1,6 @@
 import React from "react";
 import ProjectCard from "../sub/ProjectCard";
-
+import expenseTrackerImg from '../../public/Expense-Tracker.png'
 const Projects = () => {
   return (
     <div className="flex flex-col items-center justify-center" id="projects">
@@ -24,14 +24,14 @@ const Projects = () => {
           githubLink="https://github.com/PranavSJ1402/AI-Interview-Prep-Platform"
           projectLink="https://prepmate-interview-prep.vercel.app/"
         />
-     <ProjectCard
-  src="/expense-tracker.png"
-  title="AI-Powered Expense Tracker"
-  projectName="Tracklet"
-  description="An AI expense tracker that categorizes spending, analyzes patterns, and offers personalized financial tips. Built with Next.js, Clerk for authentication, OpenAI for insights, and real-time visualizations using React Charts."
-  githubLink="https://github.com/PranavSJ1402/Expense_Tracker_AI"
-  projectLink=""
-/>
+      <ProjectCard
+          src={expenseTrackerImg}
+          title="AI-Powered Expense Tracker"
+          projectName="Tracklet"
+          description="An AI expense tracker that categorizes spending, analyzes patterns, and offers personalized financial tips. Built with Next.js, Clerk for authentication, OpenAI for insights, and real-time visualizations using React Charts."
+          githubLink="https://github.com/PranavSJ1402/Expense_Tracker_AI"
+          projectLink=""
+        />
 
       </div>
     </div>

@@ -3,7 +3,7 @@ import HomeContent from "@/components/main/HomeContent";
 import Projects from "@/components/main/Projects";
 import RevealOnScroll from "@/components/main/RevealOnScroll";
 import Skills from "@/components/main/Skills";
-
+import Experience from "@/components/sub/Experience";
 export default function Home() {
   return (
     <main className="h-full w-full">
@@ -16,6 +16,9 @@ export default function Home() {
         </RevealOnScroll>
         <RevealOnScroll>
           <Skills />
+        </RevealOnScroll>
+            <RevealOnScroll>
+          <Experience />
         </RevealOnScroll>
         <RevealOnScroll>
           <Projects />

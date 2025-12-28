@@ -4,6 +4,8 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
+/* ---------------- Title ---------------- */
+
 const HeroTypingBox = () => {
   return (
     <motion.div
@@ -18,6 +20,8 @@ const HeroTypingBox = () => {
     </motion.div>
   );
 };
+
+/* ---------------- Floating Orb ---------------- */
 
 const FloatingOrb = ({ delay, size, color, position }: any) => (
   <motion.div
@@ -41,9 +45,11 @@ const FloatingOrb = ({ delay, size, color, position }: any) => (
   />
 );
 
+/* ---------------- Main Component ---------------- */
+
 const HeroContent = () => {
   const [currentWord, setCurrentWord] = useState(0);
-  const dynamicWords = ["innovative", "responsive", "modern", "interactive"];
+  const dynamicWords = ["scalable", "secure", "end-to-end"];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -65,7 +71,7 @@ const HeroContent = () => {
     <motion.div
       initial="hidden"
       animate="visible"
-      className="flex flex-col lg:flex-row items-center justify-between px-8 md:px-20 mt-20 md:mt-40 w-full z-[20] gap-12 lg:gap-20 relative"
+      className="flex flex-col lg:flex-row items-center justify-between px-8 md:px-20 mt-8 md:mt-20 w-full z-[20] gap-12 lg:gap-20 relative"
     >
       {/* Left Section - Image */}
       <motion.div
@@ -74,7 +80,7 @@ const HeroContent = () => {
         animate="visible"
         className="w-full lg:w-1/2 flex justify-center lg:justify-start relative order-2 lg:order-1"
       >
-        {/* Floating Orbs moved here */}
+        {/* Floating Orbs */}
         <FloatingOrb
           delay={0}
           size="200px"
@@ -114,12 +120,11 @@ const HeroContent = () => {
             transition={{ duration: 0.3 }}
           >
             <Image
-              src="/Pranav1.jpg"
+              src="/Pranav-blazer1.jpeg"
               alt="Pranav"
               layout="fill"
               objectFit="cover"
               objectPosition="top"
-              className=""
               priority
             />
           </motion.div>
@@ -130,6 +135,7 @@ const HeroContent = () => {
       <div className="flex flex-col gap-6 justify-center items-center md:items-start w-full max-w-3xl lg:w-1/2 order-1 lg:order-2 text-center md:text-left lg:text-justify">
         <HeroTypingBox />
 
+        {/* Headline */}
         <motion.div
           variants={fadeInVariant(0.2)}
           initial="hidden"
@@ -140,7 +146,7 @@ const HeroContent = () => {
             whileHover={{ scale: 1.02 }}
             className="block md:inline-block mr-0 md:mr-5"
           >
-            Creating
+            Building
           </motion.span>
 
           <span className="relative inline-block">
@@ -160,36 +166,47 @@ const HeroContent = () => {
           </span>
           <br />
           <motion.span whileHover={{ scale: 1.02 }} className="inline-block">
-            user interfaces
+            full-stack applications
           </motion.span>
         </motion.div>
 
+        {/* Description */}
         <motion.p
           variants={fadeInVariant(0.6)}
           initial="hidden"
           animate="visible"
           className="text-gray-300 text-lg leading-8 text-center md:text-left lg:text-justify"
         >
-          <motion.span className="font-semibold text-white cursor-default">
-            I&apos;m a frontend focused fullstack developer from Chh
-            Sambhajinagar,
-          </motion.span>
-          &nbsp;interested in crafting clean and responsive user interfaces
-          using&nbsp;
-          <span className="text-white font-medium">MERN Stack</span>,&nbsp;
+          <span className="font-semibold text-white">
+            I&apos;m a Full-Stack Developer from Chh. Sambhajinagar
+          </span>
+          , focused on building reliable, scalable, and production-ready web
+          applications.
+          <br />
+          <br />
+          I work across the entire stack — designing clean UIs with&nbsp;
+          <span className="text-white font-medium">React</span>,&nbsp;
           <span className="text-white font-medium">Next.js</span>, and&nbsp;
-          <span className="text-white font-medium">Tailwind CSS</span>.
-          <br />I enjoy building real-world apps that integrate&nbsp;
-          <span className="text-white font-medium">AI</span>, solve practical
-          problems, and improve user experiences with tools like&nbsp;
-          <span className="text-white font-medium">Framer Motion</span>.
+          <span className="text-white font-medium">Tailwind CSS</span>, while
+          developing robust backend systems using&nbsp;
+          <span className="text-white font-medium">Node.js</span>,&nbsp;
+          <span className="text-white font-medium">Express</span>, and&nbsp;
+          <span className="text-white font-medium">SQL / MongoDB</span>.
+          <br />
+          <br />
+          I enjoy solving real-world problems, integrating&nbsp;
+          <span className="text-white font-medium">APIs</span>, working with&nbsp;
+          <span className="text-white font-medium">authentication</span>, and
+          building features that combine performance, security, and great user
+          experience — including modern workflows powered by&nbsp;
+          <span className="text-white font-medium">AI</span>.
         </motion.p>
 
-        {/* Download Resume Button */}
+        {/* Resume Button */}
         <button
           onClick={() =>
             window.open(
-              "/Pranav-Joshi-Resume (1).pdf",
+              "/Pranav-Joshi-Software-Developer-Resume.pdf",
               "_blank",
               "noopener,noreferrer"
             )

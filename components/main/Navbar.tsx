@@ -12,33 +12,33 @@ const Navbar = () => {
     <div className="w-full h-[65px] fixed top-0 left-0 shadow-lg shadow-[#2A0E61]/50 bg-[#03001417] backdrop-blur-md z-50 px-5 md:px-10">
       <div className="w-full h-full flex items-center justify-between">
         {/* Logo */}
-<a href="#about-me" className="flex items-center space-x-1">
-  {/* "P" with gradient animation */}
-  <motion.span
-    initial={{ color: "#8b5cf6" }}
-    animate={{ color: ["#8b5cf6", "#06b6d4", "#8b5cf6"] }}
-    transition={{ duration: 3, repeat: Infinity }}
-    className="font-bold text-3xl sm:text-4xl"
-  >
-    P
-  </motion.span>
+        <a href="#about-me" className="flex items-center space-x-1">
+          {/* "P" with gradient animation */}
+          <motion.span
+            initial={{ color: "#8b5cf6" }}
+            animate={{ color: ["#8b5cf6", "#06b6d4", "#8b5cf6"] }}
+            transition={{ duration: 3, repeat: Infinity }}
+            className="font-bold text-3xl sm:text-4xl"
+          >
+            P
+          </motion.span>
 
-  {/* "ranav" – no animation, force white color */}
-  <span className="font-bold text-3xl sm:text-4xl text-white">ranav</span>
+          {/* "ranav" – no animation, force white color */}
+          <span className="font-bold text-3xl sm:text-4xl text-white">ranav</span>
 
-  {/* "J" with gradient animation */}
-  <motion.span
-    initial={{ color: "#8b5cf6" }}
-    animate={{ color: ["#8b5cf6", "#06b6d4", "#8b5cf6"] }}
-    transition={{ duration: 3, repeat: Infinity }}
-    className="font-bold text-3xl sm:text-4xl"
-  >
-    J
-  </motion.span>
+          {/* "J" with gradient animation */}
+          <motion.span
+            initial={{ color: "#8b5cf6" }}
+            animate={{ color: ["#8b5cf6", "#06b6d4", "#8b5cf6"] }}
+            transition={{ duration: 3, repeat: Infinity }}
+            className="font-bold text-3xl sm:text-4xl"
+          >
+            J
+          </motion.span>
 
-  {/* "oshi" – no animation, force white color */}
-  <span className="font-bold text-3xl sm:text-4xl text-white">oshi</span>
-</a>
+          {/* "oshi" – no animation, force white color */}
+          <span className="font-bold text-3xl sm:text-4xl text-white">oshi</span>
+        </a>
 
 
         {/* Desktop Nav */}

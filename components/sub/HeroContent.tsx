@@ -204,11 +204,11 @@ const HeroContent = () => {
 
         {/* Resume Button */}
     <a
-  href="/Pranav-Joshi-Resume.pdf?v=2026"
+    href=  "https://pranav-joshi.vercel.app/Pranav-Joshi-Resume.pdf"
   target="_blank"
   rel="noopener noreferrer"
 >
-  <button className="...">
+  <button className="py-3 px-6 bg-cyan-600 hover:bg-purple-500 text-white rounded-xl font-semibold text-base transition-all duration-300 hover:scale-105 z-[9999] relative pointer-events-auto">
     View Resume
   </button>
 </a>

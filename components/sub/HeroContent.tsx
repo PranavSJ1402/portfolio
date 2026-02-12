@@ -206,7 +206,7 @@ const HeroContent = () => {
         <button
           onClick={() =>
             window.open(
-              "/Pranav-Joshi-Software-Developer-Resume.pdf",
+              "/Pranav-Joshi-Resume.pdf",
               "_blank",
               "noopener,noreferrer"
             )

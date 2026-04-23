@@ -79,17 +79,16 @@ const SkillBadge = ({
           boxShadow: needsBg ? "0 2px 6px rgba(0,0,0,0.15)" : "none",
         }}
       >
-      {Icon ? (
-  <Icon color={color} />
-) : (
-  <img
-    src={imageUrl}
-    alt={skill}
-    className={`object-contain ${
-      skill === "Python" ? "w-20 h-20 sm:w-24 sm:h-24" : "w-14 h-14 sm:w-12 sm:h-12"
-    }`}
-  />
-)}
+        {Icon ? (
+          <Icon color={color} />
+        ) : (
+          <img
+            src={imageUrl}
+            alt={skill}
+            className={`object-contain ${skill === "Python" ? "w-20 h-20 sm:w-24 sm:h-24" : "w-14 h-14 sm:w-12 sm:h-12"
+              }`}
+          />
+        )}
 
       </div>
       <span className="font-medium text-sm sm:text-base text-center">
@@ -110,22 +109,22 @@ const SkillText = () => {
     { skill: "TypeScript", Icon: SiTypescript, color: "#3178C6" },
     { skill: "Tailwind CSS", Icon: SiTailwindcss, color: "#06B6D4" },
     { skill: "React.js", Icon: SiReact, color: "#61DAFB" },
-    { skill: "Next.js", Icon: null,color: "#000000", imageUrl: "/next.png"},
+    { skill: "Next.js", Icon: null, color: "#000000", imageUrl: "/next.png" },
     { skill: "Node.js", Icon: SiNodedotjs, color: "#339933" },
-    { skill: "Express.js", Icon: null,color: "#000000", imageUrl: "/express.png"},
+    { skill: "Express.js", Icon: null, color: "#000000", imageUrl: "/express.png" },
     { skill: "MongoDB", Icon: SiMongodb, color: "#47A248" },
     {
       skill: "Postgresql",
       Icon: null,
       color: "#000000",
       imageUrl: "/postger.png"
-    },{
+    }, {
       skill: "Prisma",
       Icon: null,
       color: "#000000",
       imageUrl: "/prisma.webp"
     },
-    
+
     { skill: "MySQL", Icon: SiMysql, color: "#4479A1" },
     {
       skill: "Python",
@@ -138,7 +137,7 @@ const SkillText = () => {
       skill: "Figma",
       Icon: null,
       color: "#000000",
-      imageUrl: "/figma.png", 
+      imageUrl: "/figma.png",
     },
   ];
 
@@ -189,7 +188,7 @@ const SkillText = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3, duration: 0.6 }}
-  className="grid grid-cols-4 sm:grid-cols-4 lg:grid-cols-8 gap-10 justify-items-center mb-0 max-w-6xl"
+        className="grid grid-cols-4 sm:grid-cols-4 lg:grid-cols-8 gap-10 justify-items-center mb-0 max-w-6xl"
       >
         {skills.map((item, index) => (
           <SkillBadge

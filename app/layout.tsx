@@ -12,6 +12,9 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   title: "Portfolio",
   description: "This is my portfolio",
+  icons: {
+    icon: "/public/logo.png",
+  },
 };
 
 export default function RootLayout({
@@ -22,8 +25,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-  className={`${manrope.className} bg-[#030014] overflow-x-hidden max-w-[100vw]`}
->
+        className={`${manrope.className} bg-[#030014] overflow-x-hidden max-w-[100vw]`}
+      >
 
         <Navbar />
         {children}

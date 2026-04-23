@@ -17,7 +17,7 @@ export default function Home() {
         <RevealOnScroll>
           <Skills />
         </RevealOnScroll>
-            <RevealOnScroll>
+        <RevealOnScroll>
           <Experience />
         </RevealOnScroll>
         <RevealOnScroll>

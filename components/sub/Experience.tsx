@@ -7,13 +7,13 @@ const experiences = [
   {
     role: "Full Stack Developer",
     company: "IP SUPER SHOPPEE Pvt Ltd",
-    duration: "09/2025 – Present",
+    duration: "09/2025 – 03/2026",
     logo: "/ipshopy.png",
     responsibilities: [
       "Developed a blog application using Next.js, enhancing key features and improving user engagement through interactive UI components and dynamic routing.",
-      "Currently building a Google Ads management platform enabling sellers to manage ad campaigns efficiently.",
-      "Integrating backend APIs for real-time updates and smooth data flow.",
-      "Collaborating with cross-functional teams to deliver production-ready features.",
+      "Worked on building Google Ads management platform enabling sellers to manage ad campaigns efficiently.",
+      "Integrated backend APIs for real-time updates and smooth data flow.",
+      "Collaborated with cross-functional teams to deliver production-ready features.",
     ],
   },
   {
@@ -36,6 +36,17 @@ const experiences = [
       "Improved Profile Page UX and API handling.",
     ],
   },
+  {
+    role: "B.Tech in Computer Science and Engineering",
+    company: "Marathwada Institute of Technology",
+    duration: "2021 – 2025",
+    logo: "/mit_logo.png",
+    responsibilities: [
+      "Bachelor of Technology in Computer Science and Engineering.",
+      "CGPA: 7.32",
+      "Chhatrapati Sambhajinagar, Maharashtra.",
+    ],
+  },
 ];
 
 const Experience = () => {
@@ -54,10 +65,10 @@ const Experience = () => {
           className="text-center mb-16"
         >
           <h2 className="text-5xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-cyan-400 mb-4">
-            Professional Experience
+            My Journey
           </h2>
           <p className="text-gray-400 text-lg md:text-xl font-medium">
-            My journey through different roles and responsibilities
+            From college classrooms to real-world products
           </p>
         </motion.div>
 

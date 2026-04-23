@@ -52,6 +52,13 @@ const letterAnimation: Variants = {
 const HomeContent = () => {
   const name = "Pranav Joshi";
 
+  const handleDownload = () => {
+    window.open(
+      "https://drive.google.com/file/d/1LASrX2tFRFURDh3Rj1Wohe8-KbX6-7br/view?usp=sharing",
+      "_blank"
+    );
+  };
+
   return (
     <section
       id="home"
@@ -123,16 +130,10 @@ const HomeContent = () => {
 
         {/* Resume Button */}
         <button
-          onClick={() =>
-            window.open(
-              "/Pranav-Joshi-Resume-updated.pdf",
-              "_blank",
-              "noopener,noreferrer"
-            )
-          }
-          className="py-3 px-6 bg-cyan-600 hover:bg-purple-500 text-white rounded-xl font-semibold text-base transition-all duration-300 hover:scale-105 z-[9999] relative pointer-events-auto"
+          onClick={handleDownload}
+          className="inline-block py-3 px-6 bg-cyan-600 hover:bg-purple-500 text-white rounded-xl font-semibold text-base transition-all duration-300 hover:scale-105 z-[9999] relative pointer-events-auto cursor-pointer"
         >
-          View Resume
+          Download Resume
         </button>
       </motion.div>
 
@@ -144,8 +145,6 @@ const HomeContent = () => {
         className="flex-1 flex justify-center relative z-20"
       >
         <div className="relative group mt-10 md:mt-0">
-
-
           {/* Image with Tilt */}
           <motion.div
             className="relative w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden bg-gradient-to-br from-purple-600/20 to-cyan-600/20 backdrop-blur-sm border-4 border-white/30 shadow-lg ring-2 ring-purple-500/40 hover:shadow-xl hover:ring-purple-600/70 transition-all duration-300"

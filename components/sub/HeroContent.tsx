@@ -178,27 +178,22 @@ const HeroContent = () => {
           className="text-gray-300 text-lg leading-8 text-center md:text-left lg:text-justify"
         >
           <span className="font-semibold text-white">
-            I&apos;m a Full-Stack Developer from Chh. Sambhajinagar
+            Full Stack Developer with ~1 year of professional experience
           </span>
-          , focused on building reliable, scalable, and production-ready web
-          applications.
+          &nbsp;delivering end-to-end web applications. Based in Chh. Sambhajinagar, I focus on clean architecture, reusable components, and performance-optimized code.
           <br />
           <br />
-          I work across the entire stack — designing clean UIs with&nbsp;
-          <span className="text-white font-medium">React</span>,&nbsp;
+          Proficient across the entire stack — crafting responsive UIs using&nbsp;
+          <span className="text-white font-medium">React.js</span>,&nbsp;
           <span className="text-white font-medium">Next.js</span>, and&nbsp;
-          <span className="text-white font-medium">Tailwind CSS</span>, while
-          developing robust backend systems using&nbsp;
+          <span className="text-white font-medium">TypeScript</span>, while
+          architecting robust backend systems with&nbsp;
           <span className="text-white font-medium">Node.js</span>,&nbsp;
-          <span className="text-white font-medium">Express</span>, and&nbsp;
-          <span className="text-white font-medium">SQL / MongoDB</span>.
+          <span className="text-white font-medium">Express.js</span>, and&nbsp;
+          <span className="text-white font-medium">REST APIs</span>.
           <br />
           <br />
-          I enjoy solving real-world problems, integrating&nbsp;
-          <span className="text-white font-medium">APIs</span>, working with&nbsp;
-          <span className="text-white font-medium">authentication</span>, and
-          building features that combine performance, security, and great user
-          experience — including modern workflows powered by&nbsp;
+          I am experienced in shipping production-grade features, designing efficient database schemas (SQL & NoSQL), and building modern applications—including interactive workflows powered by&nbsp;
           <span className="text-white font-medium">AI</span>.
         </motion.p>
 

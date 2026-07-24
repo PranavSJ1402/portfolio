@@ -52,7 +52,7 @@ const Projects = () => {
           projectLink="https://prepmate-interview-prep.vercel.app/"
         />
    <ProjectCard
-  src="/CollabEdit.png"
+  src="/collabedit.png"
   title="Real-Time Collaborative Editor"
   projectName="Collab-Edit"
   description="A real-time collaborative document editor built with Socket.io for live syncing. Features JWT-secured auth, document CRUD, and a three-tier permission system, backed by Prisma with Neon Postgres. Dockerized and deployed on AWS ECS/Fargate."

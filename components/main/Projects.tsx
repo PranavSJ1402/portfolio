@@ -5,6 +5,10 @@ import ProjectCard from "../sub/ProjectCard";
 import expenseTrackerImg from '../../public/Expense-Tracker.png'
 
 const Projects = () => {
+    const fadeInVariant = (delay = 0) => ({
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, delay } },
+  });
   return (
     <section
       id="projects"
@@ -17,11 +21,16 @@ const Projects = () => {
         transition={{ duration: 0.5 }}
         className="text-center mb-16"
       >
-        <h1 className="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-pink-500 to-cyan-500 pb-4">
-          Featured Projects
-        </h1>
-        <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto">
-          A showcase of my recent work, combining robust engineering with creative design.
+            <motion.span
+                        variants={fadeInVariant(0)}
+                        initial="hidden"
+                        animate="visible"
+                        className="inline-flex items-center gap-2 font-mono mb-4 text-3xl tracking-[0.25em] uppercase text-cyan-300/70 border border-cyan-300/20 bg-cyan-300/[0.04] rounded-full px-4 py-1.5"
+                      >
+                        PROJECTS
+                   </motion.span>
+        <p className="text-gray-400 text-sm italic  md:text-xl max-w-2xl mx-auto">
+          Projects that i have built, showcasing my skills and expertise in full-stack development
         </p>
       </motion.div>
 
@@ -42,14 +51,14 @@ const Projects = () => {
           githubLink="https://github.com/PranavSJ1402/AI-Interview-Prep-Platform"
           projectLink="https://prepmate-interview-prep.vercel.app/"
         />
-        <ProjectCard
-          src={expenseTrackerImg}
-          title="AI-Powered tracker"
-          projectName="Tracklet"
-          description="An AI expense tracker that categorizes spending, analyzes patterns, and offers personalized financial tips. Built with Next.js, Clerk for authentication, OpenAI for insights, and real-time visualizations using React Charts."
-          githubLink="https://github.com/PranavSJ1402/Expense_Tracker_AI"
-          projectLink="https://tracklet-ai.vercel.app/"
-        />
+   <ProjectCard
+  src="/CollabEdit.png"
+  title="Real-Time Collaborative Editor"
+  projectName="Collab-Edit"
+  description="A real-time collaborative document editor built with Socket.io for live syncing. Features JWT-secured auth, document CRUD, and a three-tier permission system, backed by Prisma with Neon Postgres. Dockerized and deployed on AWS ECS/Fargate."
+  githubLink="https://github.com/PranavSJ1402/CollabEdit"
+  projectLink="#"
+/>
       </div>
     </section>
   );

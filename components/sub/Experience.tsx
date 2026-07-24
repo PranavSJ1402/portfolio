@@ -50,6 +50,10 @@ const experiences = [
 ];
 
 const Experience = () => {
+    const fadeInVariant = (delay = 0) => ({
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, delay } },
+  });
   return (
     <section id="experience" className="py-20 relative overflow-hidden">
       {/* Background Decorative Elements */}
@@ -64,10 +68,15 @@ const Experience = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-cyan-400 mb-4">
-            My Journey
-          </h2>
-          <p className="text-gray-400 text-lg md:text-xl font-medium">
+         <motion.span
+                 variants={fadeInVariant(0)}
+                 initial="hidden"
+                 animate="visible"
+                 className="inline-flex items-center gap-2 font-mono mb-4 text-3xl tracking-[0.25em] uppercase text-cyan-300/70 border border-cyan-300/20 bg-cyan-300/[0.04] rounded-full px-4 py-1.5"
+               >
+                 My Journey
+            </motion.span>
+          <p className="text-gray-400 text-lg md:text-xl italic font-medium">
             From college classrooms to real-world products
           </p>
         </motion.div>

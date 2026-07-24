@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useMemo } from "react";
 import { motion } from "framer-motion";
 import {
   SiHtml5,
@@ -8,199 +8,260 @@ import {
   SiTypescript,
   SiTailwindcss,
   SiReact,
-  SiNextdotjs,
   SiNodedotjs,
-  SiExpress,
   SiMongodb,
   SiMysql,
   SiGit,
   SiPostgresql,
+  SiDocker,
+  SiLinux,
+  SiAmazonaws,
+  SiGithubactions,
+  SiPython,
+  SiRedux,
 } from "react-icons/si";
 
-// Floating Particle Component
-const FloatingParticle = ({
-  delay,
-  duration,
-  targetX,
-  targetY,
-}: {
-  delay: number;
-  duration: number;
-  targetX: number;
-  targetY: number;
-}) => (
-  <motion.div
-    className="absolute w-1 h-1 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full opacity-60"
-    initial={{ opacity: 0, scale: 0 }}
-    animate={{
-      opacity: [0, 1, 0],
-      scale: [0, 1, 0],
-      x: [0, targetX],
-      y: [0, targetY],
-    }}
-    transition={{
-      duration,
-      delay,
-      repeat: Infinity,
-      repeatDelay: 2,
-    }}
-    style={{ left: "50%", top: "50%" }}
-  />
-);
-
-// Skill Badge Component
-const SkillBadge = ({
-  skill,
-  Icon,
-  delay,
-  color,
-  imageUrl,
-}: {
+type Skill = {
   skill: string;
   Icon: React.ElementType | null;
-  delay: number;
   color: string;
   imageUrl?: string;
-}) => {
-  const needsBg = color === "#000000";
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ delay, duration: 0.5, type: "spring" }}
-      whileHover={{ scale: 1.08, y: -4 }}
-      className="flex flex-col items-center justify-center w-24 sm:w-28 md:w-32 gap-2 px-3 py-3 text-white/90 hover:text-white transition-all cursor-pointer"
-    >
-      <div
-        className="text-4xl sm:text-5xl p-2 rounded-full flex items-center justify-center"
-        style={{
-          backgroundColor: "transparent",
-          boxShadow: needsBg ? "0 2px 6px rgba(0,0,0,0.15)" : "none",
-        }}
-      >
-        {Icon ? (
-          <Icon color={color} />
-        ) : (
-          <img
-            src={imageUrl}
-            alt={skill}
-            className={`object-contain ${skill === "Python" ? "w-20 h-20 sm:w-24 sm:h-24" : "w-14 h-14 sm:w-12 sm:h-12"
-              }`}
-          />
-        )}
-
-      </div>
-      <span className="font-medium text-sm sm:text-base text-center">
-        {skill}
-      </span>
-    </motion.div>
-  );
 };
 
-// Skill Text Main Component
+type Theme = {
+  from: string; // gradient start (tailwind class fragment, e.g. "from-amber-300")
+  to: string; // gradient end
+  glow: string; // soft background glow color
+};
+
+type Block = {
+  title: string;
+  caption: string;
+  items: Skill[];
+  span: string;
+  theme: Theme;
+  icon: React.ReactNode;
+};
+
+// ---- tiny hand-drawn category glyphs (no extra deps) ----
+const GlyphCode = () => (
+  <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5">
+    <path d="M8 6L2 12l6 6M16 6l6 6-6 6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+const GlyphLayout = () => (
+  <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5">
+    <rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" strokeWidth="1.8" />
+    <path d="M3 9h18M9 9v11" stroke="currentColor" strokeWidth="1.8" />
+  </svg>
+);
+const GlyphServer = () => (
+  <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5">
+    <rect x="3" y="4" width="18" height="6" rx="1.5" stroke="currentColor" strokeWidth="1.8" />
+    <rect x="3" y="14" width="18" height="6" rx="1.5" stroke="currentColor" strokeWidth="1.8" />
+    <circle cx="7" cy="7" r="1" fill="currentColor" />
+    <circle cx="7" cy="17" r="1" fill="currentColor" />
+  </svg>
+);
+const GlyphCloud = () => (
+  <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5">
+    <path
+      d="M7 18a4.5 4.5 0 0 1-.7-8.94A5.5 5.5 0 0 1 17.2 8.1 4 4 0 0 1 17 18H7Z"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+const GlyphDatabase = () => (
+  <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5">
+    <ellipse cx="12" cy="6" rx="8" ry="3" stroke="currentColor" strokeWidth="1.8" />
+    <path d="M4 6v6c0 1.66 3.58 3 8 3s8-1.34 8-3V6M4 12v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6" stroke="currentColor" strokeWidth="1.8" />
+  </svg>
+);
+
+// Single skill chip — icon (or monogram fallback) + name
+const SkillChip = ({ skill, Icon, color, imageUrl }: Skill) => (
+  <div className="flex items-center gap-2.5 px-3 py-2 rounded-xl bg-white/[0.045] border border-white/[0.07] hover:bg-white/[0.09] hover:border-white/[0.2] hover:-translate-y-0.5 transition-all duration-200">
+    <div className="text-xl shrink-0 flex items-center justify-center w-6 h-6">
+      {Icon ? (
+        <Icon color={color} />
+      ) : imageUrl ? (
+        <img src={imageUrl} alt={skill} className="w-5 h-5 object-contain" />
+      ) : (
+        <span
+          className="w-5 h-5 rounded-md flex items-center justify-center text-[10px] font-bold text-white/90"
+          style={{ backgroundColor: color }}
+        >
+          {skill.trim().charAt(0)}
+        </span>
+      )}
+    </div>
+    <span className="text-sm sm:text-[15px] text-white/85 font-medium whitespace-nowrap">
+      {skill}
+    </span>
+  </div>
+);
+
+// A single category block/card
+const SkillBlock = ({ block, index }: { block: Block; index: number }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 24 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, amount: 0.25 }}
+    transition={{ delay: index * 0.08, duration: 0.5, ease: "easeOut" }}
+    className={`group relative rounded-2xl p-6 sm:p-7 overflow-hidden bg-white/[0.035] border border-white/[0.08] backdrop-blur-sm hover:border-white/[0.2] transition-colors duration-300 ${block.span}`}
+  >
+    {/* soft radial glow tucked in the corner, tinted per-category */}
+    <div
+      className="absolute -top-16 -right-16 w-40 h-40 rounded-full blur-3xl opacity-25 group-hover:opacity-40 transition-opacity duration-300 pointer-events-none"
+      style={{ background: block.theme.glow }}
+    />
+
+    <div className="relative flex items-start justify-between mb-5">
+      <div className="flex items-center gap-3">
+        <div
+          className={`w-10 h-10 rounded-xl flex items-center justify-center bg-gradient-to-br ${block.theme.from} ${block.theme.to} text-black/80 shadow-lg shadow-black/20`}
+        >
+          {block.icon}
+        </div>
+        <div>
+          <h3 className="text-lg sm:text-xl font-semibold text-white/95 leading-tight">
+            {block.title}
+          </h3>
+          <p className="text-xs sm:text-[13px] text-white/40">{block.caption}</p>
+        </div>
+      </div>
+    </div>
+
+    <div className="relative flex flex-wrap gap-2.5">
+      {block.items.map((item) => (
+        <SkillChip key={item.skill} {...item} />
+      ))}
+    </div>
+  </motion.div>
+);
+
 const SkillText = () => {
-  const [showParticles, setShowParticles] = useState(false);
+  const blocks: Block[] = [
+    {
+      title: "Frontend",
+      caption: "Building interfaces & experiences",
+      span: "md:col-span-4",
+      icon: <GlyphLayout />,
+      theme: { from: "from-cyan-300", to: "to-blue-400", glow: "#22d3ee" },
+      items: [
+        { skill: "HTML", Icon: SiHtml5, color: "#E34F26" },
+        { skill: "CSS", Icon: SiCss3, color: "#1572B6" },
+        { skill: "React.js", Icon: SiReact, color: "#61DAFB" },
+        { skill: "Next.js", Icon: null, color: "#000000", imageUrl: "/next.png" },
+        { skill: "Tailwind CSS", Icon: SiTailwindcss, color: "#06B6D4" },
+        { skill: "shadcn/ui", Icon: null, color: "#404040" },
+        { skill: "Redux", Icon: SiRedux, color: "#E34F26" },
 
-  const skills = [
-    { skill: "HTML", Icon: SiHtml5, color: "#E34F26" },
-    { skill: "CSS", Icon: SiCss3, color: "#1572B6" },
-    { skill: "JavaScript", Icon: SiJavascript, color: "#F7DF1E" },
-    { skill: "TypeScript", Icon: SiTypescript, color: "#3178C6" },
-    { skill: "Tailwind CSS", Icon: SiTailwindcss, color: "#06B6D4" },
-    { skill: "React.js", Icon: SiReact, color: "#61DAFB" },
-    { skill: "Next.js", Icon: null, color: "#000000", imageUrl: "/next.png" },
-    { skill: "Node.js", Icon: SiNodedotjs, color: "#339933" },
-    { skill: "Express.js", Icon: null, color: "#000000", imageUrl: "/express.png" },
-    { skill: "MongoDB", Icon: SiMongodb, color: "#47A248" },
-    {
-      skill: "Postgresql",
-      Icon: null,
-      color: "#000000",
-      imageUrl: "/postger.png"
-    }, {
-      skill: "Prisma",
-      Icon: null,
-      color: "#000000",
-      imageUrl: "/prisma.webp"
+      ],
     },
+    {
+      title: "Languages",
+      caption: "Core programming languages",
+      span: "md:col-span-2",
+      icon: <GlyphCode />,
+      theme: { from: "from-amber-300", to: "to-orange-400", glow: "#fbbf24" },
+      items: [
+        { skill: "JavaScript", Icon: SiJavascript, color: "#F7DF1E" },
+        { skill: "TypeScript", Icon: SiTypescript, color: "#3178C6" },
+        { skill: "Python", Icon: SiPython, color: "#3776AB" },
+      ],
+    },
+    {
+      title: "Backend",
+      caption: "APIs, services & server logic",
+      span: "md:col-span-2",
+      icon: <GlyphServer />,
+      theme: { from: "from-emerald-300", to: "to-green-400", glow: "#34d399" },
+      items: [
+        { skill: "Node.js", Icon: SiNodedotjs, color: "#339933" },
+        { skill: "Express.js", Icon: null, color: "#000000", imageUrl: "/express.png" },
+        { skill: "REST APIs", Icon: null, color: "#10b981" },
+      ],
+    },
+    {
+      title: "Deployments",
+      caption: "Shipping & running software",
+      span: "md:col-span-2",
+      icon: <GlyphCloud />,
+      theme: { from: "from-violet-300", to: "to-fuchsia-400", glow: "#a78bfa" },
+      items: [
+        { skill: "Linux", Icon: SiLinux, color: "#FCC624" },
+        { skill: "Docker", Icon: SiDocker, color: "#2496ED" },
+        { skill: "AWS (EC2, S3)", Icon: SiAmazonaws, color: "#FF9900" },
+        { skill: "GitHub Actions", Icon: SiGithubactions, color: "#2088FF" },
+      ],
+    },
+    {
+      title: "Databases & ORM",
+      caption: "Storing & modeling data",
+      span: "md:col-span-2",
+      icon: <GlyphDatabase />,
+      theme: { from: "from-rose-300", to: "to-pink-400", glow: "#fb7185" },
+      items: [
+        { skill: "MySQL", Icon: SiMysql, color: "#4479A1" },
+        { skill: "MongoDB", Icon: SiMongodb, color: "#47A248" },
+        { skill: "Postgresql", Icon: null, color: "#000000", imageUrl: "/postger.png" },
+        { skill: "Prisma", Icon: null, color: "#000000", imageUrl: "/prisma.webp" },
+        { skill: "ConvexDB", Icon: null, color: "#000000", imageUrl: "/convex.png" },
 
-    { skill: "MySQL", Icon: SiMysql, color: "#4479A1" },
-    {
-      skill: "Python",
-      Icon: null,
-      color: "#000000",
-      imageUrl: "/python (2).png"
-    },
-    { skill: "Git", Icon: SiGit, color: "#F05032" },
-    {
-      skill: "Figma",
-      Icon: null,
-      color: "#000000",
-      imageUrl: "/figma.png",
+      ],
     },
   ];
 
-  const handleSkillBadgeClick = () => {
-    setShowParticles(true);
-    setTimeout(() => setShowParticles(false), 2000);
-  };
+  const { skillCount, domainCount } = useMemo(
+    () => ({
+      skillCount: blocks.reduce((sum, b) => sum + b.items.length, 0),
+      domainCount: blocks.length,
+    }),
+    []
+  );
 
   return (
     <div
       id="tech-stack"
-      className="w-full min-h-screen flex flex-col items-center justify-center px-6 mb-0 mt-16 relative overflow-hidden"
+      className="w-full min-h-screen flex flex-col items-center justify-center px-6 py-24 relative overflow-hidden"
     >
       {/* Background Effects */}
       <div className="absolute top-20 left-20 w-60 h-60 bg-purple-500/10 rounded-full blur-3xl animate-pulse" />
       <div className="absolute bottom-20 right-20 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
-
-      {/* Floating Particles */}
-      {showParticles &&
-        [...Array(15)].map((_, i) => (
-          <FloatingParticle
-            key={i}
-            delay={i * 0.08}
-            duration={2.5}
-            targetX={Math.random() * 300 - 150}
-            targetY={Math.random() * 300 - 150}
-          />
-        ))}
+      <div
+        className="absolute inset-0 opacity-[0.03] pointer-events-none"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, white 1px, transparent 1px), linear-gradient(to bottom, white 1px, transparent 1px)",
+          backgroundSize: "48px 48px",
+        }}
+      />
 
       {/* Header */}
       <motion.div
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
+        initial={{ y: -40, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true, amount: 0.4 }}
         transition={{ duration: 0.6, type: "spring" }}
-        className="relative mb-10 text-center"
-        onClick={handleSkillBadgeClick}
+        className="relative mb-14 text-center"
       >
-        <motion.h1 className="text-[60px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-400 cursor-pointer">
-          Technical Skills
-        </motion.h1>
-        <p className="text-white/70  italic text-xl sm:text-base mt-2">
-          Technologies I have worked with
+        <span className="inline-block font-mono mb-3 text-3xl tracking-[0.25em] uppercase text-cyan-300/70 border border-cyan-300/20 rounded-full px-4 py-1.5">
+          Tech Stack
+        </span>
+        <p className="text-white/60 text-base italic sm:text-lg mt-3">
+          Tools across all domains — from interface to infrastructure
         </p>
       </motion.div>
 
-      {/* Skill Badges Grid */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3, duration: 0.6 }}
-        className="grid grid-cols-4 sm:grid-cols-4 lg:grid-cols-8 gap-10 justify-items-center mb-0 max-w-6xl"
-      >
-        {skills.map((item, index) => (
-          <SkillBadge
-            key={index}
-            skill={item.skill}
-            Icon={item.Icon}
-            delay={index * 0.05}
-            color={item.color}
-            imageUrl={item.imageUrl}
-          />
+      {/* Skill Blocks — bento grid */}
+      <div className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-6 gap-5 sm:gap-6">
+        {blocks.map((block, index) => (
+          <SkillBlock key={block.title} block={block} index={index} />
         ))}
-      </motion.div>
+      </div>
     </div>
   );
 };

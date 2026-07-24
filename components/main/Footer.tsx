@@ -9,6 +9,11 @@ import {
 import { MdEmail, MdPhone } from "react-icons/md";
 
 const Footer = () => {
+
+    const fadeInVariant = (delay = 0) => ({
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, delay } },
+  });
   const socialLinks = [
     {
       href: "https://github.com/PranavSJ1402",
@@ -51,10 +56,15 @@ const Footer = () => {
           transition={{ duration: 0.6 }}
           className="mb-12 text-center"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400 mb-4">
-            Let&apos;s Connect
-          </h2>
-          <p className="text-gray-400 text-lg max-w-md mx-auto">
+               <motion.span
+                 variants={fadeInVariant(0)}
+                 initial="hidden"
+                 animate="visible"
+                 className="inline-flex items-center gap-2 font-mono mb-4 text-3xl tracking-[0.25em] uppercase text-cyan-300/70 border border-cyan-300/20 bg-cyan-300/[0.04] rounded-full px-4 py-1.5"
+               >
+                 Let&rsquo;s Connect
+            </motion.span>
+          <p className="text-gray-400 text-md italic max-w-md mx-auto">
             Reach out via any of these platforms!
           </p>
         </motion.div>
